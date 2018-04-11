@@ -6,7 +6,7 @@ Everyone should be able to make a comment or discuss the specific edit depending
 a branch or the master.
 
 ~Christopher Vienna
-~
+~Jacob Fraizer
 ~
 ~
 ************************
