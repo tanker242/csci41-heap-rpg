@@ -6,7 +6,7 @@ using namespace std;
 
 int main()
 {
-    cout << "Welcome to the RPG" << endl << "Use the "ASWD" keys to navigate the map" << endl; 
+    cout << "Welcome to the RPG" << endl << "Use the ASWD keys to navigate the map" << endl; 
     
   while (true) {
   int xCoor = 0;
