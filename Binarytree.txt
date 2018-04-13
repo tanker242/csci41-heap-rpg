@@ -2,21 +2,38 @@
 #include <algorithm>
 using namespace std;
 
+struct Event{
+//bool is_output = 1;
+string question;
+
+vector<string> lines;
+};
+
 
 struct Node {
-    char data;
-    Node *left=NULL;
-    Node *right = NULL;
-    Node(char new_data)
+    Event data;
+    vector<Node*> paths;
+    Node(Event new_data)
     {data = new_data;}
 
 };
 
-//if (c == EOF) break;
+
 class Tree {
+Node *current;
+Node *head= NULL;
+void delete(node* N) {
+for (node* temp : N-> paths)
+    delete(temp);
+    delete N; }
+    
+    
     public:
         Tree(){};
-        Node *head= NULL;
+    ~Tree(){
+        delete(head);
+}
+
 
         void insert(Node *temp, char data1){
             if (! head) {
