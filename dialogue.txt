@@ -21,3 +21,15 @@ cout << "You walk up to the door and realize that Astaroth has forgotten to bolt
 cout << "You break through the door and rush outside and find a armory" << endl;
 
 cout << "
+
+
+
+
+
+*************************
+BATTLE SYSTEM DIALOGUE
+
+
+*************************
+ENVIRONMENT DIALOGUE
+*************************
