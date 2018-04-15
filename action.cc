@@ -15,4 +15,8 @@ struct move{
     bool hostile; //if true is a damaging spell or attack
     bool is_spell;
 }
-{name, defense, bp, scalling, accuracy, hostility, is_spell}
+//{name, defense, bp, scalling, accuracy, hostility, is_spell}
+/*Examples
+{"Blizzard", MAGIC, 80, 0, INT, true, true}
+{"Heal Ally", PURE, -40, 0, INT, false, true}
+*/
