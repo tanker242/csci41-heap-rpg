@@ -17,6 +17,6 @@ struct move{
 }
 //{name, defense, bp, scalling, accuracy, hostility, is_spell}
 /*Examples
-{"Blizzard", MAGIC, 80, 0, INT, true, true}
-{"Heal Ally", PURE, -40, 0, INT, false, true}
+{"Blizzard", MAGIC, 80, 0, INT, .95, true, true}
+{"Heal Ally", PURE, -40, 0, INT, 1.0, false, true}
 */
