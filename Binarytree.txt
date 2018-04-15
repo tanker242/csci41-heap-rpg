@@ -1,12 +1,19 @@
-#include <iostream>
+                                         
+   #include <iostream>
 #include <algorithm>
+#include <unistd.h>
+#include <term.h>
 using namespace std;
 
 struct Event{
-//bool is_output = 1;
-string question;
+    //bool is_output = 1;
 
-vector<string> lines;
+    string question;
+
+    vector<string> lines;
+
+Event (string N, vector<string> vec): question(N), lines(vec){}
+
 };
 
 
@@ -14,87 +21,89 @@ struct Node {
     Event data;
     vector<Node*> paths;
     Node(Event new_data)
-    {data = new_data;}
 
 };
 
 
 class Tree {
-Node *current;
-Node *head= NULL;
-void delete(node* N) {
-for (node* temp : N-> paths)
-    delete(temp);
-    delete N; }
-    
-    
+    Node *current;
+    Node *head= NULL;
+    void delete(node* N) {
+        for (node* temp : N-> paths)
+            delete(temp);
+        delete N; }
+
+
+    void ClearScreen()
+    {
+        if (!cur_term)
+        {
+            int result;
+            setupterm( NULL, STDOUT_FILENO, &result );
+            if (result <= 0) return;
+        }
+
+        putp( tigetstr( "clear" ) );
+    }
+
+
     public:
-        Tree(){};
+    Tree(){};
     ~Tree(){
-        delete(head);
-}
+    delete(head);
+    }
+
+    void initdialogue() {
+        cout << current->data.question << endl;
+        cout << "Please choose from these responses." << endl;
+        for (int i =0; i < current->data.lines.size();i++)
+            cout << i << ": " << current-> data.lines.at(i) << endl;
+        cout << endl;
+        int input =0;
+        cin >> input;
+        if (input < 0 || input >= current->data.lines.size()) exit(1);
+        if (current->paths.size() != current->data.lines.size()) {
+
+            if (current->paths.size() != 1) exit(1);
+            current = current->paths.front();
+
+            return;
 
 
-        void insert(Node *temp, char data1){
-            if (! head) {
-                Node *temp1 = new Node(data1);
-                head = temp1;
-                return;
-            }
-            else if (data1 == temp->data)
-                return;
-            else if (data1 < temp->data){
-                if (temp->left == NULL){
-                    Node *temp1 = new Node(data1);
-                    temp-> left = temp1;
-                    return;
-                }
-                insert(temp->left,data1);
-            }
-            else if (data1 > temp -> data) {
-                if (temp -> right == NULL) {
-                    Node *temp1 = new Node(data1);
-                    temp -> right = temp1;
-                    return;
-                }
-                insert(temp -> right,data1);
-            }
+
         }
 
-        bool find(char data1){
-            Node *temp = head;
-            while (temp != NULL){
-                if (temp->data == data1)
-                    return true;
-                else if (data1 < temp -> data)
-                    temp = temp->left;
-                else if (data1 > temp -> data)
-                    temp = temp -> right;
-            }
-            return false;
-        }
-        void  print(char data1){
-            Node *temp = head;
-            while (temp != NULL){
-                                                    
-         if (temp->data == data1){
-                    cout << "Found " << data1 << ". Retrace your steps to the entrance." << endl;
-                    return;
-                }
-                else if (data1 < temp -> data){
-                    cout << "Take the left door at the " << temp->data << "." << endl;
-                    temp = temp->left;
-                }
-                else if (data1 > temp -> data){
-                    cout << "Take the right door at the " << temp->data << "." << endl;
-                    temp = temp -> right;
-                }
-            }
+        current = current->paths.at(input);
+    }
+
+    void insert(Node *temp, char data1){
+        if (! head) {
+            Node *temp1 = new Node(data1);
+            head = temp1;
             return;
         }
+        else if (data1 == temp->data)
+            return;
+        else if (data1 < temp->data){
+            if (temp->left == NULL){
+                Node *temp1 = new Node(data1);
+                temp-> left = temp1;
+                return;
+            }
+            insert(temp->left,data1);
+        }
+        else if (data1 > temp -> data) {
+            if (temp -> right == NULL) {
+                Node *temp1 = new Node(data1);
+                temp -> right = temp1;
+                return;
+                                              
+             }
+            insert(temp -> right,data1);
+        }
+    }
+
 };
-                                                                                       
-                                                    
-                                                    
-                                                    
+
+                                        
                                                     
