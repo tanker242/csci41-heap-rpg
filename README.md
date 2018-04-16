@@ -70,7 +70,7 @@ Things/roles to be done & who is doing them:
 Project Lead:
 ~Chris
 
-Create atleast a 3x3 or 4x4 C style multidemential array
+Create atleast a 3x3 or 4x4 C style multidemential array, BST, or B tree
 ~Saleh
 
 Create classes for 5 unique rooms, 1 for each person and a 5th we make together. The array will be assigned to one of these rooms.
@@ -88,8 +88,8 @@ Create base user UI that will display the menu and navigate the program
 Create battle system to reduce players HP, check heap for attack priority, check MP values for special attacks, check for dead objects to exit the battle loop or lose the game.
 ~Issac??
 
-Scripts for various parts of the game.
-~Everyone contribues, but.. maybe Saleh.. Maybe Chris??
+Story scripts for various parts of the game.
+~Everyone contribues, primary Saleh, maybe Chris aswell?
 
 Create puzzles that uses a type of data structure
 ~Issac & Jacob
