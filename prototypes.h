@@ -37,7 +37,7 @@ bool get_isDead ();
 void set_isAlly ();
 bool get_isAlly ();
 void setRow ();
-int getRow ();
+bool getRow ();
 
 };
 
