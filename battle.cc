@@ -11,6 +11,7 @@
 #include <random>
 using namespace std;
 //Requires "-lboost_system -lboost_regex"
+//TODO DONT USE
 
 struct battle_data{
     //brook format: int move_Type, bool hostility, double hitchance, int damgage, int damage_type
