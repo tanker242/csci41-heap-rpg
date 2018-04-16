@@ -6,7 +6,7 @@
 using namespace std;
 
 //Start Entity implementation
-
+/*
 Entity::Entity(){
 
 int hp = 0;
@@ -21,6 +21,7 @@ bool isDead = 0;
 bool isAlly = 0;
 bool row = 0; //Front row = 0 and back row = 1
 };
+*/
   //Methods
 void Entity::setHp (int _hp){
 	hp = _hp;

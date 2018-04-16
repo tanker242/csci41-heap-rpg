@@ -24,7 +24,7 @@ TestEntity();
 //Function designed to test class
 void TestEntity(){
 	cout << "Printing all values for the following: object test of type Player." << endl;
-	Player test;
+	Entity test;
 	cout << "HP:" << test.getHp() << endl;
 	cout << "MP:" << test.getMp() << endl;
 	cout << "Lvl:" << test.getLvl() << endl;

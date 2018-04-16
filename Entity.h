@@ -47,13 +47,21 @@ bool get_isAlly ();
 void setRow (bool _row);
 bool getRow ();
 
-//Default Constructor
-Entity();
-
-
-
+//Constructor
+Entity(){
+int hp = 0;
+int mp = 0;
+int xp = 0; //** Note Not currently used - needs to be added
+int lvl = 1;
+int spd = 0; // might end up being an int depending on heap
+int str = 0; // stat will increase HP and warrior melee
+int intel = 0; // stat increases MP and spell damage
+int agi = 0; // stat increases speed and agile attack damage
+bool isDead = 0;
+bool isAlly = 0;
+bool row = 0; //Front row = 0 and back row = 1
+}
 };
-
 //Start player classes
 enum PlayerClass { warrior, mage, rogue, cleric, ranger, priest };
 
