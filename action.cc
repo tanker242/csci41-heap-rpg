@@ -2,7 +2,7 @@ struct action{
     bool internal = false;
     string message, data;
 }
-
+//DONT USE
 enum damage_type{PHYS,MAGIC,PURE};
 enum stats{STR,AGI,INT,LVL};
 struct move{
