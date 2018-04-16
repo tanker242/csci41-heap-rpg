@@ -11,7 +11,7 @@
 #include <random>
 using namespace std;
 //using namespace boost;
-
+//Requires "-lboost_system -lboost_system" in compiler
 struct battle_data{
     //brook format: int move_Type, bool hostility, double hitchance, int damgage, int damage_type
     //move_type formating: Attack==0, Spell=1,Other=2; damage type formating: Pure: 0, Physical: 1, Magic: 2
