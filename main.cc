@@ -11,6 +11,7 @@ int main() {
     for (int i = 0; i < 10 ; i++) {
         movement();
         dialogue(i);
+        // insert battle system right here, after every ten moves
     }
     cout << "game over" << endl;
 
