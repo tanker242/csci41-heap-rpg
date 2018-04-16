@@ -24,7 +24,7 @@ TestEntity();
 //Function designed to test class
 void TestEntity(){
 	cout << "Printing all values for the following: object test of type Player." << endl;
-	Entity test;
+	Player test;
 	cout << "HP:" << test.getHp() << endl;
 	cout << "MP:" << test.getMp() << endl;
 	cout << "Lvl:" << test.getLvl() << endl;
@@ -33,8 +33,8 @@ void TestEntity(){
 	cout << "Str:" << test.getStr() << endl;
 	cout << "Intel:" << test.getIntel() << endl;
 	cout << "Agi:" << test.getAgi() << endl;
-//	cout << "isDead:" << get_isDead()  << endl; After making changes to Entity.cc and .h these break
-//	cout << "isAlly:" << get_isAlly()  << endl;
-//	cout << "row:" << getRow()  << endl;
+	cout << "isDead:" << test.get_isDead()  << endl; 
+	cout << "isAlly:" << test.get_isAlly()  << endl;
+	cout << "row:" << test.getRow()  << endl;
 };
 
