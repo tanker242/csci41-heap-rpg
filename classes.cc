@@ -1,10 +1,14 @@
-//Start class prototypes- will actually be in an implementation file later today
-//Message me in discord if you have more to add or have suggestions
+#include <iostream>
+#include <cmath>
+#include <cstdlib>
+#include "Entity.h"
 
-class Entity {
+using namespace std;
 
-public:
-  //Variables
+//Start Entity implementation
+
+Entity::Entity(){
+
 int hp = 0;
 int mp = 0;
 int xp = 0;
@@ -15,65 +19,67 @@ int intel = 0; // stat increases MP and spell damage
 int agi = 0; // stat increases speed and agile attack damage
 bool isDead = 0;
 bool isAlly = 0;
-int row = 0 //Front row = 0 and back row = 1
-
-  //Methods
-void setHP ();
-int getHP ();
-void setMP ();
-int getMP ();
-void setLvl ();
-int getLvl ();
-void setSpeed ();
-int getSpeed ();
-void setStr ();
-int getStr ();
-void setIntel ();
-int getIntel ();
-void setAgi ();
-int getAgi ();
-void set_isDead ();
-bool get_isDead ();
-void set_isAlly ();
-bool get_isAlly ();
-void setRow ();
-bool getRow ();
-
+bool row = 0 //Front row = 0 and back row = 1
 };
+  //Methods
+void Entity::setHP ();
+int Entity:: getHP (){
+	return hp;
+};
+
+void Entity:: setMP ();
+int Entity::getMP (){
+	return mp;
+};
+
+void Entity::setLvl ();
+int Entity:: getLvl (){
+	return lvl;
+};
+
+void Entity::setSpeed ();
+int Entitiy::getSpeed (){
+	return spd;
+};
+
+void Entity::setStr ();
+int Entity::getStr (){
+	return str;
+};
+
+void Entity::setIntel ();
+int Entity::getIntel (){
+	return intel;
+};
+
+void Entity::setAgi ();
+int Entity::getAgi (){
+	return agi;
+};
+
+void Entity::set_isDead ();
+bool Entity::get_isDead (){
+	return isDead;
+};
+
+void Entity::set_isAlly ();
+bool Entity::get_isAlly (){
+	return isAlly;
+};
+
+void Entity::setRow ();
+bool Entity::getRow (){
+	return row;
+};
+
+
 
 //Start player classes
 
-class Warrior : public Entity :{
+Player::Player(){
 
-protected:
+}
 
-public:
-
-};
-
-class Rogue : public Entity {
-
-protected:
-
-public:
-
-};
-
-class Mage : public Entity {
-
-protected:
-
-public:
-
-};
-
-class Cleric : public character :{
-
-protected:
-
-public:
-
-};
 
 //Start NPC classes
 

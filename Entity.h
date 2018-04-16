@@ -6,7 +6,11 @@
 class Entity {
 
 public:
-  //Variables
+
+	//Default Constructor
+Entity();
+
+	//Variables
 int hp;
 int mp;
 int xp;
@@ -44,34 +48,38 @@ bool getRow ();
 };
 
 //Start player classes
+enum PlayerClass { warrior, mage, rogue, cleric, ranger, priest };
 
-class Player : public Entity :{
+class Player : public Entity {
 
 protected:
 //Player characters set to 1 through the corresponding function when
 //object is declared. Bool set to 1 for a specific class.
-	bool warrior;
-	bool mage;
-	bool rogue;
-	bool cleric;
-	bool ranger;
-	bool priest;
+//	bool warrior;
+//	bool mage;
+//	bool rogue;
+//	bool cleric;
+//	bool ranger;
+//	bool priest;
+
+	PlayerClass selection;
+
 
 public:
 
-	int getClass(); //return int for enum class, array of 0-5
+	PlayerClass getClass(); //return int for enum class, array of 0-5
 	void setClass(); //funtions to set bool for 1 class. 
 };
 
 
 //Start NPC classes
+enum NpcClass { typeNPC, bossNPC };
 
 class Npc : public Entity {
 
 protected:
 
-	bool typeNPC;
-	bool bossNPC;
+	NpcClass selection;
 
 public:
 
