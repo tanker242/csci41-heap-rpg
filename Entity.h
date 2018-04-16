@@ -26,40 +26,40 @@ bool isAlly;
 bool row; //Front row = 0 and back row = 1
 
   //Methods
-void setHp(int _hp);
+void setHp(int m_hp);
 int getHp ();
-void setMp (int _mp);
+void setMp (int m_mp);
 int getMp ();
-void setLvl (int _lvl);
+void setLvl (int m_lvl);
 int getLvl ();
-void setSpd (int _spd);
+void setSpd (int m_spd);
 int getSpd ();
-void setStr (int _str);
+void setStr (int m_str);
 int getStr ();
-void setIntel (int _intel);
+void setIntel (int m_intel);
 int getIntel ();
-void setAgi (int _agi);
+void setAgi (int m_agi);
 int getAgi ();
-void set_isDead (bool _isDead);
+void set_isDead (bool m_isDead);
 bool get_isDead ();
-void set_isAlly (bool _isAlly);
+void set_isAlly (bool m_isAlly);
 bool get_isAlly ();
-void setRow (bool _row);
+void setRow (bool m_row);
 bool getRow ();
 
 //Constructor
 Entity(){
-int hp = 0;
-int mp = 0;
-int xp = 0; //** Note Not currently used - needs to be added
-int lvl = 1;
-int spd = 0; // might end up being an int depending on heap
-int str = 0; // stat will increase HP and warrior melee
-int intel = 0; // stat increases MP and spell damage
-int agi = 0; // stat increases speed and agile attack damage
-bool isDead = 0;
-bool isAlly = 0;
-bool row = 0; //Front row = 0 and back row = 1
+hp = 0;
+mp = 0;
+xp = 0; //** Note Not currently used - needs to be added
+lvl = 1;
+spd = 0; // might end up being an int depending on heap
+str = 0; // stat will increase HP and warrior melee
+intel = 0; // stat increases MP and spell damage
+agi = 0; // stat increases speed and agile attack damage
+isDead = 0;
+isAlly = 0;
+row = 0; //Front row = 0 and back row = 1
 }
 };
 //Start player classes

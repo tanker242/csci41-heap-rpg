@@ -23,85 +23,85 @@ bool row = 0; //Front row = 0 and back row = 1
 };
 */
   //Methods
-void Entity::setHp (int _hp){
-	hp = _hp;
+void Entity::setHp (int m_hp){
+	hp = m_hp;
 };
 int Entity::getHp(){
 	return hp;
 };
 
 //
-void Entity::setMp (int _mp){
-	mp = _mp;
+void Entity::setMp (int m_mp){
+	mp = m_mp;
 };
 int Entity::getMp (){
 	return mp;
 };
 
 //
-void Entity::setLvl (int _lvl){
-	lvl = _lvl;
+void Entity::setLvl (int m_lvl){
+	lvl = m_lvl;
 };
 int Entity::getLvl (){
 	return lvl;
 };
 
 //
-void Entity::setSpd (int _spd){
-	spd = _spd;
+void Entity::setSpd (int m_spd){
+	spd = m_spd;
 };
 int Entity::getSpd (){
 	return spd;
 };
 
 //
-void Entity::setStr(int _str){
-	str = _str;
+void Entity::setStr(int m_str){
+	str = m_str;
 };
 int Entity::getStr (){
 	return str;
 };
 
 //
-void Entity::setIntel (int _intel)
+void Entity::setIntel (int m_intel)
 {
-	intel = _intel;
+	intel = m_intel;
 };
 int Entity::getIntel (){
 	return intel;
 };
 
 //
-void Entity::setAgi (int _agi)
+void Entity::setAgi (int m_agi)
 {
-	agi = _agi;
+	agi = m_agi;
 };
 int Entity::getAgi (){
 	return agi;
 };
 
 //
-void Entity::set_isDead (bool _isDead)
+void Entity::set_isDead (bool m_isDead)
 {
-	isDead = _isDead;
+	isDead = m_isDead;
 };
 bool Entity::get_isDead (){
 	return isDead;
 };
 
 //
-void Entity::set_isAlly (bool _isAlly)
+void Entity::set_isAlly (bool m_isAlly)
 {
-	isAlly = _isAlly;
+	isAlly = m_isAlly;
 };
 bool Entity::get_isAlly (){
 	return isAlly;
 };
 
 //
-void Entity::setRow (bool _row)
+void Entity::setRow (bool m_row)
 {
-	row = _row;
+	row = m_row;
 };
 bool Entity::getRow (){
 	return row;
