@@ -11,6 +11,7 @@
 #include <random>
 #include "battle_helper.h"
 using namespace std;
+//Requires "-lboost_system -lboost_regex"
 //TODO: impliment dynamic events
 namespace battle{
     enum damage_type{PURE=0,PHYSICAL=1,MAGIC=2};
