@@ -1,11 +1,15 @@
 #include <iostream>
 #include <cstdlib>
 using namespace std;
+int xCoor =0;
+int yCoor =0;
+
 
 void movement() {
     while (true) {
-        int xCoor = 0;
-        int yCoor = 0;
+        //int xCoor = 0;
+        //int yCoor = 0;
+        int count = 0;
         char c;
         while (true) {
             cin >> c;
@@ -14,23 +18,16 @@ void movement() {
             } else if (c == 's') {
                 yCoor -= 1;
             } else if (c == 'd') {
-                xCoor += 1; 
+                xCoor += 1;
             } else if (c == 'w') {
-                yCoor += 1; 
-            }   
+                yCoor += 1;
+            }
             cout << "X coordinate =" << xCoor << endl << "Y coordinate =" << yCoor << endl;
-        }   
-        
-                                                                                                            1,15          Top
-}
-}   
+            count++;
+            if (count % 10 == 0) break;
+        }
 
 
-
-
-
-int main() {
-    cout << "Welcome to the RPG" << endl << "Use the ASWD keys to navigate the map" << endl;
-    movement();
-
+        break;
+    }
 }
