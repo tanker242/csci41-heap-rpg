@@ -1,3 +1,7 @@
+//#include <iostream>
+//#include <cstdlib>
+
+
 #ifndef _CLASSES
 #define _CLASSES
 //Start class prototypes
@@ -7,8 +11,6 @@ class Entity {
 
 public:
 
-	//Default Constructor
-Entity();
 
 	//Variables
 int hp;
@@ -24,14 +26,14 @@ bool isAlly;
 bool row; //Front row = 0 and back row = 1
 
   //Methods
-void setHP (int _hp);
-int getHP ();
-void setMP (int _mp);
-int getMP ();
+void setHp(int _hp);
+int getHp ();
+void setMp (int _mp);
+int getMp ();
 void setLvl (int _lvl);
 int getLvl ();
-void setSpeed (int _spd);
-int getSpeed ();
+void setSpd (int _spd);
+int getSpd ();
 void setStr (int _str);
 int getStr ();
 void setIntel (int _intel);
@@ -44,6 +46,11 @@ void set_isAlly (bool _isAlly);
 bool get_isAlly ();
 void setRow (bool _row);
 bool getRow ();
+
+//Default Constructor
+Entity();
+
+
 
 };
 
@@ -66,6 +73,24 @@ protected:
 
 
 public:
+// Tried to nest a constructor, but it didn't work very well
+	/*
+	void meow(int x){
+		if(true){
+		Player(){
+		hp = 13337;
+		};
+		}else{
+			Player(){
+				hp = 22;
+			};
+			
+	}
+	};
+*/
+// Was wanting to use enum to select a condition in order to set default stats for desired character
+//	Player(){};
+//	~Player(){};
 
 	PlayerClass getClass(); //return int for enum class, array of 0-5
 	void setClass(); //funtions to set bool for 1 class. 
@@ -88,5 +113,21 @@ public:
 };
 
 	
-
+/*Function designed to test class
+void TestEntity(){
+cout << "Printing all values for the following: object test of type Player." << endl;
+Player test;
+cout << "HP:" << test.getHp() << endl;
+cout << "MP:" << test.getMp() << endl;
+cout << "Lvl:" << test.getLvl() << endl;
+cout << "Spd:" << test.getSpd() << endl;
+cout << "Xp:" << "Is currently not in use" << endl;
+cout << "Str:" << test.getStr() << endl;
+cout << "Intel:" << test.getIntel() << endl;
+cout << "Agi:" << test.getAgi() << endl;
+cout << "isDead:" << get_isDead()  << endl;
+cout << "isAlly:" << get_isAlly()  << endl;
+cout << "row:" << getRow()  << endl;
+};
+*/
 #endif
