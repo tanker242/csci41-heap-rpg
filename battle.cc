@@ -10,7 +10,7 @@
 #include <assert.h>
 #include <random>
 using namespace std;
-//using namespace boost;
+//Requires "-lboost_system -lboost_regex"
 
 struct battle_data{
     //brook format: int move_Type, bool hostility, double hitchance, int damgage, int damage_type
