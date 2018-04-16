@@ -1,80 +1,84 @@
-//Start class prototypes- will actually be in an implementation file later today
+#ifndef _CLASSES
+#define _CLASSES
+//Start class prototypes
 //Message me in discord if you have more to add or have suggestions
 
 class Entity {
 
 public:
   //Variables
-int hp = 0;
-int mp = 0;
-int xp = 0;
-int lvl = 1;
-int speed = 0; // might end up being an int depending on heap
-int str = 0; // stat will increase HP and warrior melee
-int intel = 0; // stat increases MP and spell damage
-int agi = 0; // stat increases speed and agile attack damage
-bool isDead = 0;
-bool isAlly = 0;
-int row = 0 //Front row = 0 and back row = 1
+int hp;
+int mp;
+int xp;
+int lvl;
+int spd; // might end up being an int depending on heap
+int str; // stat will increase HP and warrior melee
+int intel; // stat increases MP and spell damage
+int agi; // stat increases speed and agile attack damage
+bool isDead;
+bool isAlly;
+bool row; //Front row = 0 and back row = 1
 
   //Methods
-void setHP ();
+void setHP (int _hp);
 int getHP ();
-void setMP ();
+void setMP (int _mp);
 int getMP ();
-void setLvl ();
+void setLvl (int _lvl);
 int getLvl ();
-void setSpeed ();
+void setSpeed (int _spd);
 int getSpeed ();
-void setStr ();
+void setStr (int _str);
 int getStr ();
-void setIntel ();
+void setIntel (int _intel);
 int getIntel ();
-void setAgi ();
+void setAgi (int _agi);
 int getAgi ();
-void set_isDead ();
+void set_isDead (bool _isDead);
 bool get_isDead ();
-void set_isAlly ();
+void set_isAlly (bool _isAlly);
 bool get_isAlly ();
-void setRow ();
+void setRow (bool _row);
 bool getRow ();
 
 };
 
 //Start player classes
 
-class Warrior : public Entity :{
+class Player : public Entity :{
 
 protected:
+//Player characters set to 1 through the corresponding function when
+//object is declared. Bool set to 1 for a specific class.
+	bool warrior;
+	bool mage;
+	bool rogue;
+	bool cleric;
+	bool ranger;
+	bool priest;
 
 public:
 
+	int getClass(); //return int for enum class, array of 0-5
+	void setClass(); //funtions to set bool for 1 class. 
 };
 
-class Rogue : public Entity {
-
-protected:
-
-public:
-
-};
-
-class Mage : public Entity {
-
-protected:
-
-public:
-
-};
-
-class Cleric : public character :{
-
-protected:
-
-public:
-
-};
 
 //Start NPC classes
 
-// Mimic, centaur ???
+class Npc : public Entity {
+
+protected:
+
+	bool typeNPC;
+	bool bossNPC;
+
+public:
+
+	void getNPC();
+	int setNPC();
+};
+
+	
+
+#endif
