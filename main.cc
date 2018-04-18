@@ -1,9 +1,11 @@
+
 #include <iostream>
 #include <cstdlib>
 #include "movement.h"
-#include "heap.h"
+//#include "heap.h"
 #include "dialogue.h"
-
+//#include "battle_system.h"
+#include "fight.h"
 using namespace std;
 
 
@@ -12,12 +14,16 @@ int main() {
     for (int i = 0; i < 10 ; i++) {
         movement();
         dialogue(i);
+        cout << endl << "The battle system will now begin" << endl;
+        fight();
         // insert battle system right here, after every ten moves
+        cout << "The journey continues" << endl;
     }
-    cout << "game over" << endl;
+    cout << "you have won the game !!!!!  game over" << endl;
 
 
 }
+
 
 
 
