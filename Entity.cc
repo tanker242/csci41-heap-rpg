@@ -1,11 +1,15 @@
 #include <iostream>
 #include <cmath>
 #include <cstdlib>
+#include <algorithm>
+#include <string>
+#include <array>
 #include "Entity.h"
+
+
 
 using namespace std;
 
-//Start Entity implementation
 /*
 Entity::Entity(){
 

@@ -4,7 +4,11 @@
 #include <string>
 #include <algorithm>
 #include <string>
+#include <cstdlib>
+//#include "Enum.h"
+//#pragma once
 
+using namespace std;
 
 #ifndef _CLASSES
 #define _CLASSES
@@ -77,7 +81,7 @@ class Entity {
 //{STR,INT,AGI,SPD,ARM,MR,XHP,XMP}
 
 	Entity(array<int, 8> base, array<int, 8> per_lvl, int lvl, bool side, string named)
-		: stats(base), stat_gain(per_lvl), level(level), faction(side), isDead(false), row(front), xp(0), name(named) {
+		: stats(base), stat_gain(per_lvl), lvl(lvl), isAlly(side), isDead(false), row(FRONT), xp(0), name(named) {
 		delta_stat.file(0);
 		hp = stats[XHP];
 		mp = stats[XMP];
