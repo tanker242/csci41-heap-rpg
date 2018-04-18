@@ -1,4 +1,3 @@
-#pragma once
 #include <stack>
 #include <vector>
 #include <array>
@@ -53,6 +52,7 @@ class move{
         for (size_t k = 0; k < 8; k++) out += stat_scaling[k]*in[k];
         return;
     }
+
 public:
     move(string nam, string msg, battle::move_type mvtyp, battle::damage_type dmgt, int base, int pri = 0, const array<int,8> &scaling = {0,0,0,0,0,0,0,0}, int mpcost, double accu = 1.0, bool hos = 1, string flvr = "")
     : prioity(pri), source(""), name(name), bp(base), message(msg), stat_scaling(scaling), dmg(dmgt), accuracy(accu), kind(), hostility(hos), flavor_txt(flvr),  mana_cost(mp_cost){}
@@ -88,6 +88,7 @@ public:
         dat << "$";
         return dat.str();
     }
+    int get_Priority(){return prioity;}
     string get_message(){return source+" "+message};
 };
 class stak : public std::stack<action>{

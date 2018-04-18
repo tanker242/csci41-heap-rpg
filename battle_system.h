@@ -1,3 +1,4 @@
+#pramga once
 #include <iostream>
 #include <string>
 #include <sstream>
@@ -10,12 +11,20 @@
 #include <assert.h>
 #include <random>
 #include "battle_helper.h"
+#include <unistd.h>
+#include <term.h>
 using namespace std;
-//Requires "-lboost_system -lboost_regex"
 //TODO: impliment dynamic events
-namespace battle{
-    enum damage_type{PURE=0,PHYSICAL=1,MAGIC=2};
-    enum move_type{ATTACK=0,SPELL=1,OTHER=2};
+
+
+
+void ClearScreen(){
+  if (!cur_term){
+    int result;
+    setupterm( NULL, STDOUT_FILENO, &result );
+    if (result <= 0) return;
+}
+  putp( tigetstr( "clear" ) );
 }
 
 bool hit_check(const double &chance){
@@ -44,6 +53,7 @@ void battle(vector<Entity> &allies, vector<Entity> enemies_in){
     for(Entity ent:enemies_in) foes.insert(ent.get_name, ent);
     while(true){
         //TODO: get user input, and run ai
+        
         while(!move_pile.empty()) act_stack.push(move_pile.pop());
         while(!act_stack.empty()){
             if(act_stack.top().internal) intern_parser(act_stack);
@@ -93,8 +103,8 @@ void damage_calc(int damage, battle::damage_type type, Entity &targ){
         cout << "The word of THE DEVELOPERS says to respect the fallen.\n";
         return;
     }
-    if(type==PHYSICAL) damage = damage*(1- ((.05*targ.get_armor())/(1+0.5*targ.get_armor()));
-    if(type==MAGIC) damage*(1- ((.05*targ.get_armor())/(1+0.5*targ.get_armor()));
+    if(type==PHYSICAL) damage = damage*(1-((.05*targ.get_armor())/(1+0.5*targ.get_armor()));
+    if(type==MAGIC) damage*(1-((.05*targ.get_armor())/(1+0.5*targ.get_armor()));
     damage = targ.damage(damage);
     if(damage>0){
         cout << targ.get_name() << " took " << damage << " damage.";
@@ -125,7 +135,7 @@ void ext_parser(stak &stax){
     lighter = boost::smatch();
     boost::regbase::flag_type nocase = boost::regex::icase;
     boost::regex ignorant("(?<=Source:)[^\$]+", boost::regex::icase);//to case that is
-    current = "(?<=Type: )[^\$]+";
+    current = "(?<=Type: )[^\$]+";//Attack type
     if(boost::regex_search(data, lighter, current)){
         temp = lighter.str();
         ignorant.assign("attack", nocase);
@@ -144,7 +154,7 @@ void ext_parser(stak &stax){
     }
     type_end:;
     lighter = boost::smatch();
-    current = "(?<=Hostile: )(true|false)";
+    current = "(?<=Hostile: )(true|false)";//Hostility
         temp = lighter.str();
         if(boost::regex_search(data, lighter, current)){
         creek << temp << " ";
@@ -154,7 +164,7 @@ void ext_parser(stak &stax){
         assert(false);
     }
     lighter = boost::smatch();
-    current = "(?<=Hitchance: )([.]|[0-9]{1})+";//ugh
+    current = "(?<=Hitchance: )([.]|[0-9]{1})+";//Hitchance
     if(boost::regex_search(data, lighter, current)){
         temp = lighter.str();
         odds = stod(temp);
@@ -162,7 +172,7 @@ void ext_parser(stak &stax){
     else odds = 1.0;
     creek << odds << " ";
     lighter = boost::smatch();
-    current = "(?<=DMG: )[[:digit:]]+";
+    current = "(?<=DMG: )[[:digit:]]+";//The damage
     if(boost::regex_search(data, lighter, current)){
         temp = lighter.str();
         num = stoi(temp);
@@ -170,7 +180,7 @@ void ext_parser(stak &stax){
     else throw;//num = 0;
     lighter = boost::smatch();
     creek << num << " ";
-    current = "(?<=Typing: )[^\$]+";
+    current = "(?<=Typing: )[^\$]+";//Damage type
     if(num){
         if(boost::regex_search(data, lighter, current)){
             temp = lighter.str();
@@ -186,7 +196,7 @@ void ext_parser(stak &stax){
     }
     dmg_type_end:;
     lighter = boost::smatch();
-    current = "(?<=Targets: )[^\$]+";
+    current = "(?<=Targets: )[^\$]+";//The targets
     if(boost::regex_search(data, lighter,current)){
         temp = lighter.str();
         current ="(?<=\<)[^>]+";
