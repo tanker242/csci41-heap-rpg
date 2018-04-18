@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+struct action{
+    bool internal = false;
+    string message, data;
+}
+
+enum damage_type{PHYS,MAGIC,PURE};
+enum stats{STR,AGI,INT,LVL};
+struct move{
+    string name;
+    int priority;
+    damage_type defense;
+    int bp;//basepower
+    int mana_cost;
+    double scaling;//scalling with stats
+    stats scaling_stat;
+    double accuracy;//between zero and one
+    bool hostile; //if true is a damaging spell or attack
+    bool is_spell;
+}
+//{name,priority,defense, bp, mana_cost, scalling, accuracy, hostility, is_spell}
+/*Examples
+ * {"Blizzard",0, MAGIC, 80, 200, 0, INT, .95, true, true}
+ * {"Heal Ally", 0,PURE, -40, 150, 0, INT, 1.0, false, true}
+* */
+
+//Rogue
+{"Stab",0,PHYS,40,0,1.5,AGI,.85,true,false}
+{"Slash",0,PHYS,60,50,0,STR,1.0,true,false}
+{"Vanish",3,PURE,0,180,0.0,LVL,1.0,false,true}
+{"Poison",3,PURE,40,40,1.5,INT,1.0,true,false}
+
+//Warrior
+{"Swing",0,PHYS,80,0,0,STR,1.0,true,false}
+{"Smash",-1,PHYS,100,0,1.5,STR,.90,true,false}
+{"SelfHeal",0,PURE,-30,100,-30,LVL,1.0,false,true}
+{"Super",0,PHYS,140,100,0,STR,1.0,true,false}
+
+//Mage
+{"Charm",0,MAGIC,70,50,0,INT,1.0,false,true}
+{"Frost",0,MAGIC,70,50,0,INT,1.0,false,true}
+{"Freeze",MAGIC,120,60,1.5,INT,.50,false,true}
+{"SelfHeal",0,PURE,-30,100,-30,LVL,1.0,false,true}
+
+//Cleric
+{"Lightbeam",0,PHYS,70,50,0,STR,1.0,true,false}
+{"PowerHeal",0,PURE,-30,150,-30,LVL,1.0,false,true}
+{"Stun",0,PHYS,80,0,0,STR,1.0,true,false}
+{"Strike",0,PHYS,150,150,0,STR,1.0,true,false}
+
