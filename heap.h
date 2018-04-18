@@ -53,9 +53,9 @@ class Heap{
 		return;
 	}
 public:
-	//template<class T>
 	Heap() : data(std::vector<T>()), comp(std::less<T>()) {}
 	Heap(std::function<bool(T,T)> in) : data(), comp(in) {}
+	bool empty{return data.empty();}
 	void push(const T &in){
 		data.push_back(in);
 		sift_up(data.size()-1);
