@@ -7,7 +7,7 @@ using namespace std;
 void fightMove (){
     string line;
     int random = 0;
-    random = rand() % 467;
+    random = rand() % 470;
     int numberOfmoves = 0;
     vector<string> moves;
     ifstream File("randomMoves.txt");
