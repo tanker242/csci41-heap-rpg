@@ -1,5 +1,5 @@
 a.out: Entity.o main.o
-	g++ -O1 -Weffc++ -c -g -std=c++17 Entity.o main.o
+	g++ -O1 -Weffc++ -g -std=c++17 Entity.o main.o
 
 Entity.o: Entity.h Entity.cc
 	g++ -O1 -Weffc++ -c -g -std=c++17 Entity.cc

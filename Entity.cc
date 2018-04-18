@@ -121,13 +121,13 @@ void Entity::change_stat(stat_type stat, int change) {
 	if (stat == XHP) {
 		int temp = stats[XHP];
 		stats[XHP] -= change;
-		if (stats[XHP] < 1) stat[XHP] = 1;
+		if (stats[XHP] < 1) stats[XHP] = 1;
 		delta_stat[XHP] += (stats[XHP] - temp);
 		if (hp > stats[XHP]) hp = stats[XHP];
 	} else {
 		int temp = stats[XMP];
 		stats[XMP] -= change;
-		if (stats[XMP] < 1) stat[XMP] = 1;
+		if (stats[XMP] < 1) stats[XMP] = 1;
 		delta_stat[XMP] += (stats[XMP] - temp);
 		if (mp > stats[XMP]) mp = stats[XMP];
 	}
