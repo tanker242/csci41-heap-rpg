@@ -32,7 +32,7 @@ int main() {
 /* Legacy testing for Entity
 */
 //void TestEntity();
-int main()
+//int main()
 {
 //    cout << "Welcome to the RPG" << endl << "Use the ASWD keys to navigate the map" << endl; 
 //    movement(); 
@@ -46,7 +46,7 @@ int main()
 //test.setHp();
 //cout << endl;
 //TestEntity();
-};
+//};
 
 //Function designed to test class
 /*
