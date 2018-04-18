@@ -10,7 +10,7 @@ using namespace std;
 
 
 int main() {
-    cout << "Welcome to the RPG" << endl << "Use the ASWD keys to navigate the map" << endl;
+    cout << "Welcome to the Tree of Decision" << endl << "Use the ASWD keys to navigate the map" << endl;
     for (int i = 0; i < 10 ; i++) {
         movement();
         dialogue(i);
