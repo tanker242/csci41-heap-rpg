@@ -6,9 +6,11 @@
 #include "dialogue.h"
 //#include "battle_system.h"
 #include "fight.h"
+#include "Entity.h"
+
 using namespace std;
 
-
+/*
 int main() {
     cout << "Welcome to the Tree of Decision" << endl << "Use the ASWD keys to navigate the map" << endl;
     for (int i = 0; i < 10 ; i++) {
@@ -28,8 +30,8 @@ int main() {
 
 
 /* Legacy testing for Entity
-
-void TestEntity();
+*/
+//void TestEntity();
 int main()
 {
 //    cout << "Welcome to the RPG" << endl << "Use the ASWD keys to navigate the map" << endl; 
@@ -38,18 +40,25 @@ int main()
 //	Player stuff;
 //	stuff.lvl = 5;
 //	cout << stuff.getHp() << endl;
-TestEntity();
+//TestEntity();
 //int t = 0;
-//cin t;
-//meow(t);
+//cin >> t;
+//test.setHp();
 //cout << endl;
-TestEntity();
+//TestEntity();
 };
 
 //Function designed to test class
+/*
 void TestEntity(){
 	cout << "Printing all values for the following: object test of type Player." << endl;
 	Player test;
+
+	int t = 0;
+	cin >> t;
+	test.setHp(t);
+	cout << endl;
+
 	cout << "HP:" << test.getHp() << endl;
 	cout << "MP:" << test.getMp() << endl;
 	cout << "Lvl:" << test.getLvl() << endl;
@@ -62,5 +71,5 @@ void TestEntity(){
 	cout << "isAlly:" << test.get_isAlly()  << endl;
 	cout << "row:" << test.getRow()  << endl;
 };
-
 */
+//*/
