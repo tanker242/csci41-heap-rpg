@@ -15,7 +15,7 @@ using namespace std;
 //Start class prototypes
 //Message me in discord if you have more to add or have suggestions
 
-enum stat_type {STR = 0, INT = 1, AGI = 2, SPD = 3, ARM = 4, MR = 5, XHP = 6, XMP = 7};
+typedef enum{STR = 0, INT = 1, AGI = 2, SPD = 3, ARM = 4, MR = 5, XHP = 6, XMP = 7} stat_type;
 enum postion {FRONT, BACK};
 
 class Entity {
@@ -40,13 +40,20 @@ class Entity {
   public:
 	//Methods
 	//Use enums as needed
-	//int clamp(int);
+    vector<move> moves;
 	void setHp(int m_hp);
 	int getHp();
 	void setMp(int m_mp);
 	int getMp();
 	void setLvl(int m_lvl);
 	int getLvl();
+    void print_flav_txt(){
+        int count = 0;
+        for(move& mv:moves){
+            cout << count << ": " << mv.get_flavor_text() << endl;
+            count++;
+        }
+    }
 //void setSpd (int m_spd);
 //int getSpd ();
 //void setStr (int m_str);
@@ -90,7 +97,7 @@ class Entity {
 
 /* OLD CODE
 Entity(){
-hp = 0;
+hp = 0;static_cast<size_t>
 mp = 0;
 xp = 0; //** Note Not currently used - needs to be added
 lvl = 1;

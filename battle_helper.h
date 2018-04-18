@@ -3,12 +3,13 @@
 #include <array>
 #include <string>
 #include <sstream>
+#include <tuple>
 using namespace std;
 
 namespace battle{
     enum damage_type{PURE=0,PHYSICAL=1,MAGIC=2};
     enum move_type{ATTACK=0,SPELL=1,OTHER=2};
-    //enum targeting{}
+    //enum targets{FOE, ALLY, ALL, NONE};//
 }
 
 struct battle_data{
@@ -42,6 +43,7 @@ struct action{
 class move{
     string name, message, source, flavor_txt; //message is goint be liked used, cast, or summoned, or taclked
     int prioity, bp, mana_cost;
+    array<bool, 4> targeting; //Enemy, Ally, Self, Hits all or one
     array<int,8> stat_scaling;
     double accuracy;
     bool hostility;
@@ -54,8 +56,9 @@ class move{
     }
 
 public:
-    move(string nam, string msg, battle::move_type mvtyp, battle::damage_type dmgt, int base, int pri = 0, const array<int,8> &scaling = {0,0,0,0,0,0,0,0}, int mpcost, double accu = 1.0, bool hos = 1, string flvr = "")
-    : prioity(pri), source(""), name(name), bp(base), message(msg), stat_scaling(scaling), dmg(dmgt), accuracy(accu), kind(), hostility(hos), flavor_txt(flvr),  mana_cost(mp_cost){}
+    move(string nam, string msg, battle::move_type mvtyp, battle::damage_type dmgt, int base, int pri = 0, array<bool,4> targ, const array<int,8> &scaling = {0,0,0,0,0,0,0,0}, int mpcost, double accu = 1.0, bool hos = 1, string flvr = "")
+    : prioity(pri), source(""), name(name), bp(base), message(msg), stat_scaling(scaling), dmg(dmgt), accuracy(accu), kind(),
+     hostility(hos), flavor_txt(flvr),  mana_cost(mp_cost), targeting(targ) {}
     set_source(const string &in){source = in};
     void set_flavor_text(const string &in, const array<int,8> &stats){flavor_txt = in}
     string get_flavor_text(const array<int,8> &stats){
@@ -73,6 +76,7 @@ public:
         else if(dmg<0) out << " Heal: " << (-1*out_dmg);
         return out.str;
     }
+    array<bool, 4> get_targeting(){return targeting};
     string get_data(const vector<string> &targets, const array<int,8> &stats){
         array<string,3> mtypes = {"Attack", "Spell", "Other"};
         array<string,3> dtypes = {"Pure", "Physical", "Magic"};
