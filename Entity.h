@@ -67,14 +67,14 @@ class Entity {
 	int get_stat(stat_type in);
 	void change_stat(stat_type stat, int change);
 	void end_battle();
-	void get_name();
+	string get_name();
 	void lvl_up();
 	int get_level();
 //	int getHp();
 	int damage(int in);
 	void subMp(int in);
 //	int getMp();
-
+	void changeRow();
 
 //Constructor
 //You can enter the arrays like this
@@ -82,7 +82,7 @@ class Entity {
 
 	Entity(array<int, 8> base, array<int, 8> per_lvl, int lvl, bool side, string named)
 		: stats(base), stat_gain(per_lvl), lvl(lvl), isAlly(side), isDead(false), row(FRONT), xp(0), name(named) {
-		delta_stat.file(0);
+//		delta_stat.file(0); // No member function in scope yet
 		hp = stats[XHP];
 		mp = stats[XMP];
 	}

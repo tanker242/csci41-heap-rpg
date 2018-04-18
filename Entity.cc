@@ -136,7 +136,7 @@ void Entity::end_battle() {
 	for (size_t k = 0; k < 8; k++) stats[k] -= delta_stat[k];
 	delta_stat.fill(0);
 };
-void Entity::get_name() {
+string Entity::get_name() {
 	return name;
 };
 void Entity::lvl_up() {
@@ -163,9 +163,9 @@ void Entity::subMp(int in) {
 //int getMp() {
 //	return mp
 //}
-void Entity::set_life_status(bool in) { // True = dead, False = alive
-	isDead = in;
-};
+//void Entity::set_life_status(bool in) { // True = dead, False = alive
+//	isDead = in;
+//};
 //bool is_alive() {
 //	return Still_Alive;
 //}
@@ -175,10 +175,10 @@ void Entity::set_life_status(bool in) { // True = dead, False = alive
 //bool get_faction() {
 //	return faction;
 //	}
-void changeRow() {
+void Entity::changeRow() {
 	if (row == FRONT) row == BACK;
 	else row == FRONT;
-}
+};
 
 //Start actor classes
 
