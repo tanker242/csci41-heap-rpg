@@ -1,5 +1,9 @@
 //#include <iostream>
 //#include <cstdlib>
+#include <array>
+#include <string>
+#include <algorithm>
+#include <string>
 
 
 #ifndef _CLASSES
@@ -7,47 +11,80 @@
 //Start class prototypes
 //Message me in discord if you have more to add or have suggestions
 
+enum stat_type {STR = 0, INT = 1, AGI = 2, SPD = 3, ARM = 4, MR = 5, XHP = 6, XMP = 7};
+enum postion {FRONT, BACK};
+
 class Entity {
 
-public:
+  protected:
 
 
 	//Variables
-int hp;
-int mp;
-int xp;
-int lvl;
-int spd; // might end up being an int depending on heap
-int str; // stat will increase HP and warrior melee
-int intel; // stat increases MP and spell damage
-int agi; // stat increases speed and agile attack damage
-bool isDead;
-bool isAlly;
-bool row; //Front row = 0 and back row = 1
+	string name;
+	int hp;
+	int mp;
+	int xp;
+	int lvl;
+	array<int, 8> stats;
+	array<int, 8> stat_gain;
+	array<int, 8> delta_stat;
+	bool isDead;
+	bool isAlly; // true for player, false for enemy
+	bool row; //Front row = 0 and back row = 1
 
-  //Methods
-void setHp(int m_hp);
-int getHp ();
-void setMp (int m_mp);
-int getMp ();
-void setLvl (int m_lvl);
-int getLvl ();
-void setSpd (int m_spd);
-int getSpd ();
-void setStr (int m_str);
-int getStr ();
-void setIntel (int m_intel);
-int getIntel ();
-void setAgi (int m_agi);
-int getAgi ();
-void set_isDead (bool m_isDead);
-bool get_isDead ();
-void set_isAlly (bool m_isAlly);
-bool get_isAlly ();
-void setRow (bool m_row);
-bool getRow ();
+
+  public:
+	//Methods
+	//Use enums as needed
+
+	void setHp(int m_hp);
+	int getHp();
+	void setMp(int m_mp);
+	int getMp();
+	void setLvl(int m_lvl);
+	int getLvl();
+//void setSpd (int m_spd);
+//int getSpd ();
+//void setStr (int m_str);
+//int getStr ();
+//void setIntel (int m_intel);
+//int getIntel ();
+//void setAgi (int m_agi);
+//int getAgi ();
+	void set_isDead(bool m_isDead);
+	bool get_isDead();
+	void set_isAlly(bool m_isAlly);
+	bool get_isAlly();
+	void setRow(bool m_row);
+	bool getRow();
+
+//New methods
+
+	int get_stat(stat_type in);
+	void change_stat(stat_type stat, int change);
+	void end_battle();
+	void get_name();
+	void lvl_up();
+	int get_level();
+//	int getHp();
+	int damage(int in);
+	void subMp(int in);
+//	int getMp();
+
 
 //Constructor
+//You can enter the arrays like this
+//{STR,INT,AGI,SPD,ARM,MR,XHP,XMP}
+
+	Entity(array<int, 8> base, array<int, 8> per_lvl, int lvl, bool side, string named)
+		: stats(base), stat_gain(per_lvl), level(level), faction(side), isDead(false), row(front), xp(0), name(named) {
+		delta_stat.file(0);
+		hp = stats[XHP];
+		mp = stats[XMP];
+	}
+};
+
+/* OLD CODE
 Entity(){
 hp = 0;
 mp = 0;
@@ -62,12 +99,15 @@ isAlly = 0;
 row = 0; //Front row = 0 and back row = 1
 }
 };
+*/
+
+
 //Start player classes
-enum PlayerClass { warrior, mage, rogue, cleric, ranger, priest };
+enum ActorClass { warrior, mage, rogue, monk, ranger, priest };
 
-class Player : public Entity {
+class Actor : public Entity {
 
-protected:
+  protected:
 //Player characters set to 1 through the corresponding function when
 //object is declared. Bool set to 1 for a specific class.
 //	bool warrior;
@@ -77,10 +117,10 @@ protected:
 //	bool ranger;
 //	bool priest;
 
-	PlayerClass selection;
+	ActorClass selection;
 
 
-public:
+  public:
 // Tried to nest a constructor, but it didn't work very well
 	/*
 	void meow(int x){
@@ -92,35 +132,35 @@ public:
 			Player(){
 				hp = 22;
 			};
-			
+
 	}
 	};
-*/
+	*/
 // Was wanting to use enum to select a condition in order to set default stats for desired character
 //	Player(){};
 //	~Player(){};
 
-	PlayerClass getClass(); //return int for enum class, array of 0-5
-	void setClass(); //funtions to set bool for 1 class. 
+	ActorClass getClass(); //return int for enum class, array of 0-5
+	void setClass(); //funtions to set bool for 1 class.
 };
 
 
 //Start NPC classes
-enum NpcClass { typeNPC, bossNPC };
+//enum NpcClass { typeNPC, bossNPC };
+//
+//class Npc : public Entity {
+//
+//protected:
+//
+//	NpcClass selection;
+//
+//public:
+//
+//	void getNPC();
+//	int setNPC();
+//};
 
-class Npc : public Entity {
 
-protected:
-
-	NpcClass selection;
-
-public:
-
-	void getNPC();
-	int setNPC();
-};
-
-	
 /*Function designed to test class
 void TestEntity(){
 cout << "Printing all values for the following: object test of type Player." << endl;
