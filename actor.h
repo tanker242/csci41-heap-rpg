@@ -3,7 +3,8 @@
 #include <alogrithm>
 enum stat_type {STR=0,INT=1,AGI=2,SPD=3,ARM=4,MR=5,XHP=6,XMP=7};
 enum postion {FRONT,BACK};
-class Actor{
+class Entity{
+    string name;
     int hp;
     int mp;
     int xp;
@@ -47,6 +48,7 @@ public:
       for(size_t k = 0; k<8; k++) stats[k] -= delta_stat[k];
       delta_stat.fill(0);
   }
+  void get_name(){return name;}
   void lvl_up(){
       for(size_t k = 0; k<8; k++) stats[k] += stat_gain[k];
       level++;
@@ -78,8 +80,8 @@ public:
 Entity() {}
 //You can enter the arrays like this
 //{STR,INT,AGI,SPD,ARM,MR,XHP,XMP}
-Entity(array<int,8> base, array<int,8> per_lvl, int lvl, bool side)
-: stats(base), stat_gain(per_lvl), level(level), faction(side), Still_Alive(true), row(front), xp(0){
+Entity(array<int,8> base, array<int,8> per_lvl, int lvl, bool side, string named)
+: stats(base), stat_gain(per_lvl), level(level), faction(side), Still_Alive(true), row(front), xp(0), name(named){
     delta_stat.file(0);
     hp = stats[XHP];
     mp = stats[XMP];
