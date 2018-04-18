@@ -1,11 +1,14 @@
+opt =  -Og -g
+std = -std=c++17
+
 a.out: Entity.o main.o
-	g++ -O1 -Weffc++ -g -std=c++17 Entity.o main.o
+	g++ -Weffc++ $(opt) $(std) Entity.o main.o
 
 Entity.o: Entity.h Entity.cc
-	g++ -O1 -Weffc++ -c -g -std=c++17 Entity.cc
+	g++ -Weffc++ -c $(opt) $(std) Entity.cc
 
 main.o: Entity.h main.cc
-	g++ -O1 -Weffc++ -c -g -std=c++17 main.cc
+	g++ -Weffc++ -c $(opt) $(std)  main.cc
 
 clean:
 	rm -f a.out core *.o

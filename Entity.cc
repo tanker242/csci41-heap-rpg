@@ -15,7 +15,7 @@ Entity::Entity(){
 
 int hp = 0;
 int mp = 0;
-int xp = 0; //** Note Not currently used - needs to be added
+int xp = 0; // Note Not currently used - needs to be added
 int lvl = 1;
 int spd = 0; // might end up being an int depending on heap
 int str = 0; // stat will increase HP and warrior melee
@@ -27,6 +27,7 @@ bool row = 0; //Front row = 0 and back row = 1
 };
 */
 //Methods
+//int Entity::clamp(int in)
 void Entity::setHp(int m_hp) {
 	hp = m_hp;
 };
@@ -152,13 +153,17 @@ void Entity::lvl_up() {
 int Entity::damage(int in) {
 	int temp = hp;
 	hp -= in;
-	clamp(hp, 0, stats[XHP]);
+	if(hp>stats[XHP]) hp = stats[XHP];
+	else if(hp<1){
+		hp = 0;
+		isDead = true;
+	}
 	return (temp - hp);
 };
 void Entity::subMp(int in) {
-	int temp = mp;
 	mp -= in;
-	clamp(hp, 0, stats[XHP]);
+	if(mp>stats[XMP]) mp = stats[XMP];
+	else if(hp<0) mp = 0;
 };
 //int getMp() {
 //	return mp

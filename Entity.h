@@ -40,7 +40,7 @@ class Entity {
   public:
 	//Methods
 	//Use enums as needed
-
+	//int clamp(int);
 	void setHp(int m_hp);
 	int getHp();
 	void setMp(int m_mp);
